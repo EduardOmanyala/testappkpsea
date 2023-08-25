@@ -71,12 +71,4 @@ class Progress(models.Model):
         verbose_name_plural = 'My Progress'
 
 
-
-class Payment(models.Model):
-    phoneno = models.CharField(max_length=10, null=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    
-    class Meta:
-        verbose_name_plural = 'Payment'
-
 # Create your models here.

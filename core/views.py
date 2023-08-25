@@ -6,7 +6,7 @@ from django.core.mail import EmailMessage
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from billing.models import PaymentConfirm
+from billing.models import PaymentDetails
 from . import models
 from core.models import QuizCategory, MyResults, QuizQuestion, UserSubmittedAnswer, Progress
 
@@ -62,7 +62,7 @@ def free_category_questions(request, cat_id):
 
 @login_required
 def category_questions(request, cat_id):
-    paydata = PaymentConfirm.objects.filter(user=request.user)
+    paydata = PaymentDetails.objects.filter(user=request.user)
     if not paydata:
         return redirect('make-a-payment')
     else:
@@ -102,12 +102,6 @@ def submit_answer(request, cat_id, quest_id):
     else:
         return HttpResponse('Method not allowed!!')
     
-#@login_required
-#def dashboaord(request):
-    #freetest = QuizCategory.objects.filter(type='free')
-    #data = QuizCategory.objects.all()
-    #paydata = PaymentConfirm.objects.filter(user=request.user)
-    #return render(request, 'core/dashboard.html', {'data':data, 'paydata':paydata, 'freetest':freetest})
 
 @login_required
 def myresults(request):
@@ -121,7 +115,7 @@ def profile(request):
 
 @login_required
 def dashboaord(request):
-    paydata = PaymentConfirm.objects.filter(user=request.user)
+    paydata = PaymentDetails.objects.filter(user=request.user)
     test1 = MyResults.objects.filter(user=request.user, subject="Test One").order_by('-id')[:1]
     test2 = MyResults.objects.filter(user=request.user, subject="Test Two").order_by('-id')[:1]
     test3 = MyResults.objects.filter(user=request.user, subject="Test Three").order_by('-id')[:1]
