@@ -18,11 +18,17 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 def mpesarequest(request):
     cl = MpesaClient()
-    phone_number = '0740408496'
+    #get user details
+    mydata = Post.objects.filter(user=request.user).order_by('-id')[:1]
+    phone_number = mydata[0]
+    #print(phone_number)
+    user_id = request.user.id
+    #print(user_id)
+    #phone_number = '0740408496'
     amount = 1
     account_reference = 'reference'
     transaction_desc = 'Description'
-    callback_url = 'https://darajambili.herokuapp.com/express-payment';
+    callback_url = 'https://kpsea.testprepken.com/callback/{0}/'.format(user_id)
     response = cl.stk_push(phone_number, amount, account_reference, transaction_desc, callback_url)
     return HttpResponse(response)
 
@@ -109,6 +115,9 @@ class ContactDetailView(DetailView):
 
 @login_required
 def makeapayment(request):
+    #user_id = request.user.id
+    #callback_url = 'https://darajambili.herokuapp.com/callback/{0}/'.format(user_id)
+    #print(callback_url)
     return render(request, 'billing/makepayment.html')
 
 def pricing(request):
