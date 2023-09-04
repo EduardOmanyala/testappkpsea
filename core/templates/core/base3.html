@@ -102,22 +102,22 @@
                     </li>
                     <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'myresults' %}">Results</a>
                     </li>
-                    <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'pricing' %}">Blog</a>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="#">Blog</a>
                     </li>
-                    <li class="rd-nav-item"><a class="rd-nav-link" href="contact-us.html">Contact Us</a>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'contactus' %}">Contact Us</a>
                     </li>
                     {% else %}
                     <li class="rd-nav-item active"><a class="rd-nav-link" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'dashboard' %}">Tests</a>
                     </li>                    
-                    <li class="rd-nav-item"><a class="rd-nav-link" href="#">About</a>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'about' %}">About</a>
                     </li>
                     <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'pricing' %}">Pricing</a>
                     </li>
                     <li class="rd-nav-item"><a class="rd-nav-link" href="#">Blog</a>
                     </li>
-                    <li class="rd-nav-item"><a class="rd-nav-link" href="#">Contact Us</a>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'contactus' %}">Contact Us</a>
                     </li>
                     {% endif %}
                   </ul>

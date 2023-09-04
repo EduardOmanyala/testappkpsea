@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap4',
     'django_daraja',
     'billing',
+    "tinymce",
 ]
 
 MIDDLEWARE = [
@@ -166,3 +167,4 @@ MPESA_INITIATOR_SECURITY_CREDENTIAL = config('MPESA_INITIATOR_SECURITY_CREDENTIA
 
 
 AUTO_LOGOUT = {'IDLE_TIME': 36000, 'REDIRECT_TO_LOGIN_IMMEDIATELY': True, 'MESSAGE': 'The session has expired. Please login again to continue.',}
+

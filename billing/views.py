@@ -15,7 +15,7 @@ from django.views.generic import (
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 # Create your views here.
 
-
+@login_required
 def mpesarequest(request):
     cl = MpesaClient()
     #get user details
@@ -28,7 +28,7 @@ def mpesarequest(request):
     amount = 1
     account_reference = 'reference'
     transaction_desc = 'Description'
-    callback_url = 'https://kpsea.testprepken.com/callback/{0}/'.format(user_id)
+    callback_url = 'https://kpsea.testprepken.com/billing/callback/{0}/'.format(user_id)
     response = cl.stk_push(phone_number, amount, account_reference, transaction_desc, callback_url)
     return HttpResponse(response)
 

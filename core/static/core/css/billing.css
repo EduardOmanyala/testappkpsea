@@ -137,3 +137,12 @@
     display: grid;
     grid-template-columns: 17% 66% 17%;
 }
+
+.question-context {
+    display: grid;
+    grid-template-columns: 17% 66% 17%;
+}
+
+.subjectdisp {
+    grid-template-rows: auto;
+}

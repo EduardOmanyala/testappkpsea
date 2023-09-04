@@ -18,7 +18,141 @@ def home(request):
         return redirect('dashboard')
     else:
         return render(request, 'core/home.html')
+    
+@login_required
+def maths(request):
+    paydata = PaymentDetails.objects.filter(user=request.user)
+    test1 = MyResults.objects.filter(user=request.user, subject="Maths Test One").order_by('-id')[:1]
+    test2 = MyResults.objects.filter(user=request.user, subject="Maths Test Two").order_by('-id')[:1]
+    test3 = MyResults.objects.filter(user=request.user, subject="Maths Test Three").order_by('-id')[:1]
+    test4 = MyResults.objects.filter(user=request.user, subject="Maths Test Four").order_by('-id')[:1]
+    test5 = MyResults.objects.filter(user=request.user, subject="Maths Test Five").order_by('-id')[:1]
+    test6 = MyResults.objects.filter(user=request.user, subject="Maths Test Six").order_by('-id')[:1]
+    test7 = MyResults.objects.filter(user=request.user, subject="Maths Test Seven").order_by('-id')[:1]
+    test8 = MyResults.objects.filter(user=request.user, subject="Maths Test Eight").order_by('-id')[:1]
+    test9 = MyResults.objects.filter(user=request.user, subject="Maths Test Nine").order_by('-id')[:1]
+    test10 = MyResults.objects.filter(user=request.user, subject="Maths Test Ten").order_by('-id')[:1]
+    return render(request, 'core/maths.html',
+                  {'paydata':paydata,
+                    'test1':test1,
+                    'test2':test2,
+                    'test3':test3,
+                    'test4':test4,
+                    'test5':test5,
+                    'test6':test6,
+                    'test7':test7,
+                    'test8':test8,
+                    'test9':test9,
+                    'test10':test10
+                    })
 
+@login_required
+def kiswahili(request):
+    paydata = PaymentDetails.objects.filter(user=request.user)
+    test1 = MyResults.objects.filter(user=request.user, subject="Kiswahili Test One").order_by('-id')[:1]
+    test2 = MyResults.objects.filter(user=request.user, subject="Kiswahili Test Two").order_by('-id')[:1]
+    test3 = MyResults.objects.filter(user=request.user, subject="Kiswahili Test Three").order_by('-id')[:1]
+    test4 = MyResults.objects.filter(user=request.user, subject="Kiswahili Test Four").order_by('-id')[:1]
+    test5 = MyResults.objects.filter(user=request.user, subject="Kiswahili Test Five").order_by('-id')[:1]
+    test6 = MyResults.objects.filter(user=request.user, subject="Kiswahili Test Six").order_by('-id')[:1]
+    test7 = MyResults.objects.filter(user=request.user, subject="Kiswahili Test Seven").order_by('-id')[:1]
+    test8 = MyResults.objects.filter(user=request.user, subject="Kiswahili Test Eight").order_by('-id')[:1]
+    test9 = MyResults.objects.filter(user=request.user, subject="Kiswahili Test Nine").order_by('-id')[:1]
+    test10 = MyResults.objects.filter(user=request.user, subject="Kiswahili Test Ten").order_by('-id')[:1]
+    return render(request, 'core/kiswahili.html',
+                  {'paydata':paydata,
+                    'test1':test1,
+                    'test2':test2,
+                    'test3':test3,
+                    'test4':test4,
+                    'test5':test5,
+                    'test6':test6,
+                    'test7':test7,
+                    'test8':test8,
+                    'test9':test9,
+                    'test10':test10
+                    })
+
+@login_required
+def english(request):
+    paydata = PaymentDetails.objects.filter(user=request.user)
+    test1 = MyResults.objects.filter(user=request.user, subject="English Test One").order_by('-id')[:1]
+    test2 = MyResults.objects.filter(user=request.user, subject="English Test Two").order_by('-id')[:1]
+    test3 = MyResults.objects.filter(user=request.user, subject="English Test Three").order_by('-id')[:1]
+    test4 = MyResults.objects.filter(user=request.user, subject="English Test Four").order_by('-id')[:1]
+    test5 = MyResults.objects.filter(user=request.user, subject="English Test Five").order_by('-id')[:1]
+    test6 = MyResults.objects.filter(user=request.user, subject="English Test Six").order_by('-id')[:1]
+    test7 = MyResults.objects.filter(user=request.user, subject="English Test Seven").order_by('-id')[:1]
+    test8 = MyResults.objects.filter(user=request.user, subject="English Test Eight").order_by('-id')[:1]
+    test9 = MyResults.objects.filter(user=request.user, subject="English Test Nine").order_by('-id')[:1]
+    test10 = MyResults.objects.filter(user=request.user, subject="English Test Ten").order_by('-id')[:1]
+    return render(request, 'core/english.html',
+                  {'paydata':paydata,
+                    'test1':test1,
+                    'test2':test2,
+                    'test3':test3,
+                    'test4':test4,
+                    'test5':test5,
+                    'test6':test6,
+                    'test7':test7,
+                    'test8':test8,
+                    'test9':test9,
+                    'test10':test10
+                    })
+
+@login_required
+def science(request):
+    paydata = PaymentDetails.objects.filter(user=request.user)
+    test1 = MyResults.objects.filter(user=request.user, subject="Intergrated Science Test One").order_by('-id')[:1]
+    test2 = MyResults.objects.filter(user=request.user, subject="Intergrated Science Test Two").order_by('-id')[:1]
+    test3 = MyResults.objects.filter(user=request.user, subject="Intergrated Science Test Three").order_by('-id')[:1]
+    test4 = MyResults.objects.filter(user=request.user, subject="Intergrated Science Test Four").order_by('-id')[:1]
+    test5 = MyResults.objects.filter(user=request.user, subject="Intergrated Science Test Five").order_by('-id')[:1]
+    test6 = MyResults.objects.filter(user=request.user, subject="Intergrated Science Test Six").order_by('-id')[:1]
+    test7 = MyResults.objects.filter(user=request.user, subject="Intergrated Science Test Seven").order_by('-id')[:1]
+    test8 = MyResults.objects.filter(user=request.user, subject="Intergrated Science Test Eight").order_by('-id')[:1]
+    test9 = MyResults.objects.filter(user=request.user, subject="Intergrated Science Test Nine").order_by('-id')[:1]
+    test10 = MyResults.objects.filter(user=request.user, subject="Intergrated Science Test Ten").order_by('-id')[:1]
+    return render(request, 'core/science.html',
+                  {'paydata':paydata,
+                    'test1':test1,
+                    'test2':test2,
+                    'test3':test3,
+                    'test4':test4,
+                    'test5':test5,
+                    'test6':test6,
+                    'test7':test7,
+                    'test8':test8,
+                    'test9':test9,
+                    'test10':test10
+                    })
+
+@login_required
+def social(request):
+    paydata = PaymentDetails.objects.filter(user=request.user)
+    test1 = MyResults.objects.filter(user=request.user, subject="Creative Arts Test One").order_by('-id')[:1]
+    test2 = MyResults.objects.filter(user=request.user, subject="Creative Arts Test Two").order_by('-id')[:1]
+    test3 = MyResults.objects.filter(user=request.user, subject="Creative Arts Test Three").order_by('-id')[:1]
+    test4 = MyResults.objects.filter(user=request.user, subject="Creative Arts Test Four").order_by('-id')[:1]
+    test5 = MyResults.objects.filter(user=request.user, subject="Creative Arts Test Five").order_by('-id')[:1]
+    test6 = MyResults.objects.filter(user=request.user, subject="Creative Arts Test Six").order_by('-id')[:1]
+    test7 = MyResults.objects.filter(user=request.user, subject="Creative Arts Test Seven").order_by('-id')[:1]
+    test8 = MyResults.objects.filter(user=request.user, subject="Creative Arts Test Eight").order_by('-id')[:1]
+    test9 = MyResults.objects.filter(user=request.user, subject="Creative Arts Test Nine").order_by('-id')[:1]
+    test10 = MyResults.objects.filter(user=request.user, subject="Creative Arts Test Ten").order_by('-id')[:1]
+    return render(request, 'core/social.html',
+                  {'paydata':paydata,
+                    'test1':test1,
+                    'test2':test2,
+                    'test3':test3,
+                    'test4':test4,
+                    'test5':test5,
+                    'test6':test6,
+                    'test7':test7,
+                    'test8':test8,
+                    'test9':test9,
+                    'test10':test10
+                    })
 
 
 def register(request):
@@ -102,6 +236,12 @@ def submit_answer(request, cat_id, quest_id):
     else:
         return HttpResponse('Method not allowed!!')
     
+@login_required
+def stoptest(request):
+    UserSubmittedAnswer.objects.filter(user=request.user).delete()
+    return redirect('dashboard')
+
+
 
 @login_required
 def myresults(request):
@@ -112,33 +252,44 @@ def myresults(request):
 def profile(request):
     return render(request, 'core/profile.html')
 
-
 @login_required
-def dashboaord(request):
-    paydata = PaymentDetails.objects.filter(user=request.user)
-    test1 = MyResults.objects.filter(user=request.user, subject="Test One").order_by('-id')[:1]
-    test2 = MyResults.objects.filter(user=request.user, subject="Test Two").order_by('-id')[:1]
-    test3 = MyResults.objects.filter(user=request.user, subject="Test Three").order_by('-id')[:1]
-    test4 = MyResults.objects.filter(user=request.user, subject="Test Four").order_by('-id')[:1]
-    test5 = MyResults.objects.filter(user=request.user, subject="Test Five").order_by('-id')[:1]
-    test6 = MyResults.objects.filter(user=request.user, subject="Test Six").order_by('-id')[:1]
-    test7 = MyResults.objects.filter(user=request.user, subject="Test Seven").order_by('-id')[:1]
-    test8 = MyResults.objects.filter(user=request.user, subject="Test Eight").order_by('-id')[:1]
-    test9 = MyResults.objects.filter(user=request.user, subject="Test Nine").order_by('-id')[:1]
-    test10 = MyResults.objects.filter(user=request.user, subject="Test Ten").order_by('-id')[:1]
-    return render(request, 
-                  'core/newdashboard.html',
-                   {'paydata':paydata,
-                    'test1':test1,
-                    'test2':test2,
-                    'test3':test3,
-                    'test4':test4,
-                    'test5':test5,
-                    'test6':test6,
-                    'test7':test7,
-                    'test8':test8,
-                    'test9':test9,
-                    'test10':test10
-                    })
+def dashboard(request):
+    return render(request, 'core/subjects.html')
+
+
+# @login_required
+# def dashboaord(request):
+#     paydata = PaymentDetails.objects.filter(user=request.user)
+#     test1 = MyResults.objects.filter(user=request.user, subject="Kiswahili Test One").order_by('-id')[:1]
+#     test2 = MyResults.objects.filter(user=request.user, subject="Test Two").order_by('-id')[:1]
+#     test3 = MyResults.objects.filter(user=request.user, subject="Test Three").order_by('-id')[:1]
+#     test4 = MyResults.objects.filter(user=request.user, subject="Test Four").order_by('-id')[:1]
+#     test5 = MyResults.objects.filter(user=request.user, subject="Test Five").order_by('-id')[:1]
+#     test6 = MyResults.objects.filter(user=request.user, subject="Test Six").order_by('-id')[:1]
+#     test7 = MyResults.objects.filter(user=request.user, subject="Test Seven").order_by('-id')[:1]
+#     test8 = MyResults.objects.filter(user=request.user, subject="Test Eight").order_by('-id')[:1]
+#     test9 = MyResults.objects.filter(user=request.user, subject="Test Nine").order_by('-id')[:1]
+#     test10 = MyResults.objects.filter(user=request.user, subject="Test Ten").order_by('-id')[:1]
+#     return render(request, 
+#                   'core/newdashboard.html',
+#                    {'paydata':paydata,
+#                     'test1':test1,
+#                     'test2':test2,
+#                     'test3':test3,
+#                     'test4':test4,
+#                     'test5':test5,
+#                     'test6':test6,
+#                     'test7':test7,
+#                     'test8':test8,
+#                     'test9':test9,
+#                     'test10':test10
+#                     })
+
+
+def about(request):
+    return render(request, 'core/about.html')
+
+def contactus(request):
+    return render(request, 'core/contactus.html')
 
 

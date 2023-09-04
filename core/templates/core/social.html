@@ -1,0 +1,566 @@
+{% extends "core/base3.html" %}
+{% load static %}
+{% block content %}
+<div class="crazxydiv123">
+<div></div>
+<div>
+<!-- start of main container-->
+<div class="subjectdisp">
+    <!-- start of first row -->
+    <div>
+        <div class="fdgvdsf44223ghj">
+            <div class="row4545hhh">
+
+                <div class="columnmhjghg675">
+                    <div title="unlock test" class="cardfgfdsg555" style="background-color: lightcyan">
+                      <h4 class="mb-1"><a href="#exampleModalCenter" data-toggle="modal" data-target="#exampleModalCenter">Creative Arts Test One</a></h4>
+                      {% if not test1 %}
+                      <p>Practice Tests and </p>
+                      <p>Revision Guides</p>
+                      {% else %}
+                      {% for row in test1 %}
+                      {% if row.percentage < 60.00 %}
+                      <span class="icon fa fa-check-circle fa-3x mb-1" style="color:red"></span>
+                      {% else %}
+                      <span class="icon fa fa-check-circle fa-3x mb-1" style="color:green"></span>
+                      {% endif %}
+                      <p class="mb-0 p-0 m-0">Score: {{row.percentage}}% &nbsp;&nbsp; <a href="#exampleModalCenter" data-toggle="modal" data-target="#exampleModalCenter">Retake?</a></p>
+                      {% endfor %}
+                      {% endif %}
+                    </div>
+                  </div>
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Creative Arts Test One</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <ul>
+                              <li>Total Questions: 15</li>
+                              <li>Time Limit: Unlimited</li>
+                              <li>Max Score: 100%</li>
+                              <li>Score needed to Pass: 70%</li>
+                            </ul>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="location.href='{% url 'free-category-questions' 15 %}'">Start Test</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <!-- Modal -->
+
+                  <div class="columnmhjghg675">
+                    <div title="unlock test" class="cardfgfdsg555" style="background-color: lightcyan">
+                      <h4 class="mb-1"><a href="#test2ModalCenter" data-toggle="modal" data-target="#test2ModalCenter">Creative Arts Test Two</a></h4>
+                    {% if not test2 %}
+                    <p>Practice Tests and </p>
+                    <p>Revision Guides</p>
+                    {% else %}
+                    {% for row in test2 %}
+                    {% if row.percentage < 60.00 %}
+                    <span class="icon fa fa-check-circle fa-3x mb-1" style="color:red"></span>
+                    {% else %}
+                    <span class="icon fa fa-check-circle fa-3x mb-1" style="color:green"></span>
+                    {% endif %}
+                    <p class="mb-0 p-0 m-0">Score: {{row.percentage}}% &nbsp;&nbsp; <a href="#test2ModalCenter" data-toggle="modal" data-target="#test2ModalCenter">Retake?</a></p>
+                    {% endfor %}
+                    {% endif %}
+                    </div>
+                  </div>
+                  <!-- Modal -->
+                  <div class="modal fade" id="test2ModalCenter" tabindex="-1" role="dialog" aria-labelledby="test2ModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Creative Arts Test Two</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <ul>
+                              <li>Total Questions: 15</li>
+                              <li>Time Limit: Unlimited</li>
+                              <li>Max Score: 100%</li>
+                              <li>Score needed to Pass: 70%</li>
+                            </ul>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="location.href='{% url 'free-category-questions' 16 %}'">Start Test</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <!-- Modal -->
+
+            </div>
+        </div>
+    </div>
+    <!-- start of second row -->
+    <div>
+
+        <div class="fdgvdsf44223ghj">
+            <div class="row4545hhh">
+                
+                <div class="columnmhjghg675">
+                    <div title="unlock test" class="cardfgfdsg555" style="background-color: lightcyan">
+                      <h4 class="mb-1"><a href="#test3ModalCenter" data-toggle="modal" data-target="#test3ModalCenter">Creative Arts Test Three</a></h4>
+                    {% if not test3 %}
+                    <p>Practice Tests and </p>
+                    <p>Revision Guides</p>
+                    {% else %}
+                    {% for row in test3 %}
+                    {% if row.percentage < 60.00 %}
+                    <span class="icon fa fa-check-circle fa-3x mb-1" style="color:red"></span>
+                    {% else %}
+                    <span class="icon fa fa-check-circle fa-3x mb-1" style="color:green"></span>
+                    {% endif %}
+                    <p class="mb-0 p-0 m-0">Score: {{row.percentage}}% &nbsp;&nbsp; <a href="#test3ModalCenter" data-toggle="modal" data-target="#test3ModalCenter">Retake?</a></p>
+                    {% endfor %}
+                    {% endif %}
+                    </div>
+                  </div>
+                  <!-- Modal -->
+                  <div class="modal fade" id="test3ModalCenter" tabindex="-1" role="dialog" aria-labelledby="test3ModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Creative Arts Test Three</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <ul>
+                              <li>Total Questions: 15</li>
+                              <li>Time Limit: Unlimited</li>
+                              <li>Max Score: 100%</li>
+                              <li>Score needed to Pass: 70%</li>
+                            </ul>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="location.href='{% url 'free-category-questions' 17 %}'">Start Test</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <!-- Modal -->
+
+
+                  <div class="columnmhjghg675">
+                    <div title="unlock test" class="cardfgfdsg555" style="background-color: lightcyan">
+                      <h4 class="mb-1"><a href="#test4ModalCenter" data-toggle="modal" data-target="#test4ModalCenter">Creative Arts Test Four</a></h4>
+                    {% if not test4 %}
+                    {% if not paydata%}
+                      <span class="icon fa fa-lock fa-2x mb-0" style="color: 	green"></span>
+                      <p class="mb-0">Available on Premium Plan</p>
+                      {% else %}
+                      <p>Practice Tests and </p>
+                      <p>Revision Guides</p>
+                      {% endif %}
+                    {% else %}
+                    {% for row in test4 %}
+                    {% if row.percentage < 60.00 %}
+                    <span class="icon fa fa-check-circle fa-3x mb-1" style="color:red"></span>
+                    {% else %}
+                    <span class="icon fa fa-check-circle fa-3x mb-1" style="color:green"></span>
+                    {% endif %}
+                    <p class="mb-0 p-0 m-0">Score: {{row.percentage}}% &nbsp;&nbsp; <a href="#test4ModalCenter" data-toggle="modal" data-target="#test4ModalCenter">Retake?</a></p>
+                    {% endfor %}
+                    {% endif %}
+                    </div>
+                  </div>
+                  <!-- Modal -->
+                  <div class="modal fade" id="test4ModalCenter" tabindex="-1" role="dialog" aria-labelledby="test4ModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Creative Arts Test Four</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <ul>
+                              <li>Total Questions: 15</li>
+                              <li>Time Limit: Unlimited</li>
+                              <li>Max Score: 100%</li>
+                              <li>Score needed to Pass: 70%</li>
+                            </ul>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="location.href='{% url 'category-questions' 18 %}'">Start Test</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <!-- Modal -->
+      
+
+            </div>
+        </div>
+        
+
+    </div>
+    <!-- start of third row -->
+    <div>
+
+        <div class="fdgvdsf44223ghj">
+            <div class="row4545hhh">
+                <div class="columnmhjghg675">
+                    <div title="unlock test" class="cardfgfdsg555" style="background-color: lightcyan">
+                      <h4 class="mb-1"><a href="#test5ModalCenter" data-toggle="modal" data-target="#test5ModalCenter">Creative Arts Test Five</a></h4>
+                      {% if not test5 %}
+                      {% if not paydata%}
+                      <span class="icon fa fa-lock fa-2x mb-0" style="color:	green"></span>
+                      <p class="mb-0">Available on Premium Plan</p>
+                      {% else %}
+                      <p>Practice Tests and </p>
+                      <p>Revision Guides</p>
+                      {% endif %}
+                    {% else %}
+                    {% for row in test5 %}
+                    {% if row.percentage < 60.00 %}
+                    <span class="icon fa fa-check-circle fa-3x mb-1" style="color:red"></span>
+                    {% else %}
+                    <span class="icon fa fa-check-circle fa-3x mb-1" style="color:green"></span>
+                    {% endif %}
+                    <p class="mb-0 p-0 m-0">Score: {{row.percentage}}% &nbsp;&nbsp; <a href="#test5ModalCenter" data-toggle="modal" data-target="#test5ModalCenter">Retake?</a></p>
+                    {% endfor %}
+                    {% endif %}
+                    </div>
+                  </div>
+                  <!-- Modal -->
+                  <div class="modal fade" id="test5ModalCenter" tabindex="-1" role="dialog" aria-labelledby="test5ModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Creative Arts Test Five</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <ul>
+                              <li>Total Questions: 15</li>
+                              <li>Time Limit: Unlimited</li>
+                              <li>Max Score: 100%</li>
+                              <li>Score needed to Pass: 70%</li>
+                            </ul>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="location.href='{% url 'category-questions' 5 %}'">Start Test</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <!-- Modal -->
+      
+
+
+                  <div class="columnmhjghg675">
+                    <div title="unlock test" class="cardfgfdsg555" style="background-color: lightcyan">
+                      <h4 class="mb-1"><a href="#test6ModalCenter" data-toggle="modal" data-target="#test6ModalCenter">Creative Arts Test Six</a></h4>
+                      {% if not test6 %}
+                      {% if not paydata%}
+                      <span class="icon fa fa-lock fa-2x mb-0" style="color:	green"></span>
+                      <p class="mb-0">Available on Premium Plan</p>
+                      {% else %}
+                      <p>Practice Tests and </p>
+                      <p>Revision Guides</p>
+                      {% endif %}
+                    {% else %}
+                    {% for row in test6 %}
+                    {% if row.percentage < 60.00 %}
+                    <span class="icon fa fa-check-circle fa-3x mb-1" style="color:red"></span>
+                    {% else %}
+                    <span class="icon fa fa-check-circle fa-3x mb-1" style="color:green"></span>
+                    {% endif %}
+                    <p class="mb-0 p-0 m-0">Score: {{row.percentage}}% &nbsp;&nbsp; <a href="#test6ModalCenter" data-toggle="modal" data-target="#test6ModalCenter">Retake?</a></p>
+                    {% endfor %}
+                    {% endif %}
+                    </div>
+                  </div>
+                  <!-- Modal -->
+                  <div class="modal fade" id="test6ModalCenter" tabindex="-1" role="dialog" aria-labelledby="test6ModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Creative Arts Test Six</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <ul>
+                              <li>Total Questions: 15</li>
+                              <li>Time Limit: Unlimited</li>
+                              <li>Max Score: 100%</li>
+                              <li>Score needed to Pass: 70%</li>
+                            </ul>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="location.href='{% url 'category-questions' 6 %}'">Start Test</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <!-- Modal -->
+
+            </div>
+        </div>
+
+
+    </div>
+    <!-- start of fourth row -->
+    <div>
+
+        <div class="fdgvdsf44223ghj">
+            <div class="row4545hhh">
+                <div class="columnmhjghg675">
+                    <div title="unlock test" class="cardfgfdsg555" style="background-color: lightcyan">
+                      <h4 class="mb-1"><a href="#test7ModalCenter" data-toggle="modal" data-target="#test7ModalCenter">Creative Arts Test Seven</a></h4>
+                      {% if not test7 %}
+                      {% if not paydata%}
+                      <span class="icon fa fa-lock fa-2x mb-0" style="color:	green"></span>
+                      <p class="mb-0">Available on Premium Plan</p>
+                      {% else %}
+                      <p>Practice Tests and </p>
+                      <p>Revision Guides</p>
+                      {% endif %}
+                    {% else %}
+                    {% for row in test7 %}
+                    {% if row.percentage < 60.00 %}
+                      <span class="icon fa fa-check-circle fa-3x mb-1" style="color:red"></span>
+                    {% else %}
+                      <span class="icon fa fa-check-circle fa-3x mb-1" style="color:green"></span>
+                    {% endif %}
+                      <p class="mb-0 p-0 m-0">Score: {{row.percentage}}% &nbsp;&nbsp; <a href="#test7ModalCenter" data-toggle="modal" data-target="#test7ModalCenter">Retake?</a></p>
+                    {% endfor %}
+                    {% endif %}
+                    </div>
+                  </div>
+                  <!-- Modal -->
+                  <div class="modal fade" id="test7ModalCenter" tabindex="-1" role="dialog" aria-labelledby="test7ModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Creative Arts Test Seven</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <ul>
+                              <li>Total Questions: 15</li>
+                              <li>Time Limit: Unlimited</li>
+                              <li>Max Score: 100%</li>
+                              <li>Score needed to Pass: 70%</li>
+                            </ul>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="location.href='{% url 'category-questions' 7 %}'">Start Test</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <!-- Modal -->
+      
+
+
+                  <div class="columnmhjghg675">
+                    <div title="unlock test" class="cardfgfdsg555" style="background-color: lightcyan">
+                      <h4 class="mb-1"><a href="#test8ModalCenter" data-toggle="modal" data-target="#test8ModalCenter">Creative Arts Test Eight</a></h4>
+                      {% if not test8 %}
+                      {% if not paydata%}
+                      <span class="icon fa fa-lock fa-2x mb-0" style="color:	green"></span>
+                      <p class="mb-0">Available on Premium Plan</p>
+                      {% else %}
+                      <p>Practice Tests and </p>
+                      <p>Revision Guides</p>
+                      {% endif %}
+                    {% else %}
+                    {% for row in test8 %}
+               
+                    {% if row.percentage < 60.00 %}
+                    <span class="icon fa fa-check-circle fa-3x mb-1" style="color:red"></span>
+                    {% else %}
+                    <span class="icon fa fa-check-circle fa-3x mb-1" style="color:green"></span>
+                    {% endif %}
+                    
+                    <p class="mb-0 p-0 m-0">Score: {{row.percentage}}% &nbsp;&nbsp; <a href="#test8ModalCenter" data-toggle="modal" data-target="#test8ModalCenter">Retake?</a></p>
+                    {% endfor %}
+                    {% endif %}
+                    </div>
+                  </div>
+                  <!-- Modal -->
+                  <div class="modal fade" id="test8ModalCenter" tabindex="-1" role="dialog" aria-labelledby="test8ModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Creative Arts Test Eight</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <ul>
+                              <li>Total Questions: 15</li>
+                              <li>Time Limit: Unlimited</li>
+                              <li>Max Score: 100%</li>
+                              <li>Score needed to Pass: 70%</li>
+                            </ul>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="location.href='{% url 'category-questions' 8 %}'">Start Test</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <!-- Modal -->
+
+
+            </div>
+        </div>
+
+
+    </div>
+    <!-- start of fifth row -->
+    
+    <div>
+
+        <div class="fdgvdsf44223ghj">
+            <div class="row4545hhh">
+                <div class="columnmhjghg675">
+                    <div title="unlock test" class="cardfgfdsg555" style="background-color: lightcyan">
+                      <h4 class="mb-1"><a href="#test9ModalCenter" data-toggle="modal" data-target="#test9ModalCenter">Creative Arts Test Nine</a></h4>
+                      {% if not test9 %}
+                      {% if not paydata%}
+                      <span class="icon fa fa-lock fa-2x mb-0" style="color:	green"></span>
+                      <p class="mb-0">Available on Premium Plan</p>
+                      {% else %}
+                      <p>Practice Tests and </p>
+                      <p>Revision Guides</p>
+                      {% endif %}
+                    {% else %}
+                    {% for row in test9 %}
+                    {% if row.percentage < 60.00 %}
+                    <span class="icon fa fa-check-circle fa-3x mb-1" style="color:red"></span>
+                    {% else %}
+                    <span class="icon fa fa-check-circle fa-3x mb-1" style="color:green"></span>
+                    {% endif %}
+                    <p class="mb-0 p-0 m-0">Score: {{row.percentage}}% &nbsp;&nbsp; <a href="#test9ModalCenter" data-toggle="modal" data-target="#test9ModalCenter">Retake?</a></p>
+                    {% endfor %}
+                    {% endif %}
+                    </div>
+                  </div>
+                  <!-- Modal -->
+                  <div class="modal fade" id="test9ModalCenter" tabindex="-1" role="dialog" aria-labelledby="test9ModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Creative Arts Test Nine</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <ul>
+                              <li>Total Questions: 15</li>
+                              <li>Time Limit: Unlimited</li>
+                              <li>Max Score: 100%</li>
+                              <li>Score needed to Pass: 70%</li>
+                            </ul>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="location.href='{% url 'category-questions' 9 %}'">Start Test</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <!-- Modal -->
+      
+      
+
+
+                  <div class="columnmhjghg675">
+                    <div title="unlock test" class="cardfgfdsg555" style="background-color: lightcyan">
+                      <h4 class="mb-1"><a href="#test10ModalCenter" data-toggle="modal" data-target="#test10ModalCenter">Creative Arts Test Ten</a></h4>
+                      {% if not test10 %}
+                      {% if not paydata%}
+                      <span class="icon fa fa-lock fa-2x mb-0" style="color:	green"></span>
+                      <p class="mb-0">Available on Premium Plan</p>
+                      {% else %}
+                      <p>Practice Tests and </p>
+                      <p>Revision Guides</p>
+                      {% endif %}
+                    {% else %}
+                    {% for row in test10 %}
+                    {% if row.percentage < 60.00 %}
+                    <span class="icon fa fa-check-circle fa-3x mb-1" style="color:red"></span>
+                    {% else %}
+                    <span class="icon fa fa-check-circle fa-3x mb-1" style="color:green"></span>
+                    {% endif %}
+                    <p class="mb-0 p-0 m-0">Score: {{row.percentage}}% &nbsp;&nbsp; <a href="#test10ModalCenter" data-toggle="modal" data-target="#test10ModalCenter">Retake?</a></p>
+                    {% endfor %}
+                    {% endif %}
+                    </div>
+                  </div>
+                  <!-- Modal -->
+                  <div class="modal fade" id="test10ModalCenter" tabindex="-1" role="dialog" aria-labelledby="test10ModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Creative Arts Test Ten</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <ul>
+                              <li>Total Questions: 15</li>
+                              <li>Time Limit: Unlimited</li>
+                              <li>Max Score: 100%</li>
+                              <li>Score needed to Pass: 70%</li>
+                            </ul>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="location.href='{% url 'category-questions' 10 %}'">Start Test</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <!-- Modal -->
+
+            </div>
+        </div>
+    </div>
+   <!-- end of fifth row -->
+
+</div>
+
+
+</div>
+<div></div>
+</div>
+
+
+
+{% endblock %}
+  

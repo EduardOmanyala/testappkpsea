@@ -49,13 +49,13 @@
                   <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                   <!-- RD Navbar Brand-->
                   <div class="rd-navbar-brand">
-                    <!--Brand--><a class="brand" href="index.html"><img src="{% static 'core/images/logo-default-450x37.png' %}" alt="" width="225" height="18"/></a>
+                    <!--Brand--><a class="brand" href="index.html"><img src="{% static 'core/images3/3logo-default-450x37.png' %}" alt="" width="225" height="18"/></a>
                   </div>
                 </div>
                 
                 <div class="rd-navbar-aside-right rd-navbar-collapse">
                   {% if user.is_authenticated %}
-                  <a class="button button-md button-default-outline-2 button-ujarak" href="#">Start Revision</a>
+                  <a class="button button-md button-default-outline-2 button-ujarak" href="{% url 'stop-test' %}">Stop Test</a>
                   {% else %}
                   <ul class="rd-navbar-corporate-contacts">
                     <li>
@@ -81,13 +81,17 @@
           </nav>
         </div>
       </header>
-    {% if messages %}
-    {% for message in messages %}
-    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-    {% endfor %}
+    {% if question.context %}
+    <div class="question-context" style="background: linear-gradient(to right, #DECBA4, #3E5151);">
+      <div></div>
+      <div>
+        <div style="text-align:left;">
+          <p style="text-align:left;">{{question.context|safe}}</p>
+        </div>
+      </div>
+      <div></div>
+    </div>
     {% endif %}
-    
-    
 
     <div class="forsubans" style="background: linear-gradient(to right, #DECBA4, #3E5151);">
         <div class="questioimgdiv">
@@ -108,8 +112,9 @@
         
       <form class="formans123" method="post" action="{% url 'submit-answer' category.id question.id %}">
           {% csrf_token %}
+          
+          <h6><strong>Question:</strong> {{question.question}}</h6>
           <br>
-          <h6>{{question.question}}</h6>
           <div class="inputGroup123">
             <input class="form-check-input" value="{{question.opt_1}}" id="option_1" name="answer" type="radio" required/>
             <label for="option_1">A) {{question.opt_1}}</label>

@@ -22,6 +22,8 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
+    path('tinymce/', include('tinymce.urls')),
+    #path('tinymce/', include('tinymce.urls')),
     path('billing/', include('billing.urls')),
 ]
 
