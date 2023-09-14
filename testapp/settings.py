@@ -13,7 +13,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ['kpsea.testprepken.com','www.kpsea.testprepken.com']
-#ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -146,7 +146,8 @@ LOGIN_URL = 'login'
 
 #email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
+EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
@@ -168,3 +169,6 @@ MPESA_INITIATOR_SECURITY_CREDENTIAL = config('MPESA_INITIATOR_SECURITY_CREDENTIA
 
 AUTO_LOGOUT = {'IDLE_TIME': 36000, 'REDIRECT_TO_LOGIN_IMMEDIATELY': True, 'MESSAGE': 'The session has expired. Please login again to continue.',}
 
+
+
+#send_mail(subject, message, from_email, recipient_list, auth_user="my_secondary_email@example.com", auth_password="mypassword")

@@ -69,7 +69,7 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    border: 2px solid black;
+    border: 2px solid #01b3a7;
 
     
 }
@@ -145,4 +145,8 @@
 
 .subjectdisp {
     grid-template-rows: auto;
+}
+
+.dispnon101 {
+    display: none;
 }
