@@ -2,11 +2,11 @@ from django.shortcuts import render, redirect
 from .forms import UserRegisterForm
 from django.template.loader import render_to_string
 from django.conf import settings
-from django.core.mail import EmailMessage
+from django.core.mail import EmailMessage, send_mail
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from billing.models import PaymentDetails
+from billing.models import PaymentDetails, PaymentInfo
 from . import models
 from core.models import QuizCategory, MyResults, QuizQuestion, UserSubmittedAnswer, Progress
 
@@ -21,7 +21,7 @@ def home(request):
     
 @login_required
 def maths(request):
-    paydata = PaymentDetails.objects.filter(user=request.user)
+    paydata = PaymentInfo.objects.filter(user=request.user)
     test1 = MyResults.objects.filter(user=request.user, subject="Maths Test One").order_by('-id')[:1]
     test2 = MyResults.objects.filter(user=request.user, subject="Maths Test Two").order_by('-id')[:1]
     test3 = MyResults.objects.filter(user=request.user, subject="Maths Test Three").order_by('-id')[:1]
@@ -48,7 +48,7 @@ def maths(request):
 
 @login_required
 def kiswahili(request):
-    paydata = PaymentDetails.objects.filter(user=request.user)
+    paydata = PaymentInfo.objects.filter(user=request.user)
     test1 = MyResults.objects.filter(user=request.user, subject="Kiswahili Test One").order_by('-id')[:1]
     test2 = MyResults.objects.filter(user=request.user, subject="Kiswahili Test Two").order_by('-id')[:1]
     test3 = MyResults.objects.filter(user=request.user, subject="Kiswahili Test Three").order_by('-id')[:1]
@@ -75,7 +75,7 @@ def kiswahili(request):
 
 @login_required
 def english(request):
-    paydata = PaymentDetails.objects.filter(user=request.user)
+    paydata = PaymentInfo.objects.filter(user=request.user)
     test1 = MyResults.objects.filter(user=request.user, subject="English Test One").order_by('-id')[:1]
     test2 = MyResults.objects.filter(user=request.user, subject="English Test Two").order_by('-id')[:1]
     test3 = MyResults.objects.filter(user=request.user, subject="English Test Three").order_by('-id')[:1]
@@ -102,7 +102,7 @@ def english(request):
 
 @login_required
 def science(request):
-    paydata = PaymentDetails.objects.filter(user=request.user)
+    paydata = PaymentInfo.objects.filter(user=request.user)
     test1 = MyResults.objects.filter(user=request.user, subject="Intergrated Science Test One").order_by('-id')[:1]
     test2 = MyResults.objects.filter(user=request.user, subject="Intergrated Science Test Two").order_by('-id')[:1]
     test3 = MyResults.objects.filter(user=request.user, subject="Intergrated Science Test Three").order_by('-id')[:1]
@@ -129,7 +129,7 @@ def science(request):
 
 @login_required
 def social(request):
-    paydata = PaymentDetails.objects.filter(user=request.user)
+    paydata = PaymentInfo.objects.filter(user=request.user)
     test1 = MyResults.objects.filter(user=request.user, subject="Creative Arts Test One").order_by('-id')[:1]
     test2 = MyResults.objects.filter(user=request.user, subject="Creative Arts Test Two").order_by('-id')[:1]
     test3 = MyResults.objects.filter(user=request.user, subject="Creative Arts Test Three").order_by('-id')[:1]
@@ -165,7 +165,7 @@ def register(request):
             html_template = 'core/successemail.html'
             html_message = render_to_string(html_template)
             subject = 'Welcome to Testapp!'
-            email_from = settings.EMAIL_HOST_USER
+            email_from = 'testprep@testprepken.com'
             recipient_list = [email]
             message = EmailMessage(subject, html_message,
                                    email_from, recipient_list)
@@ -196,7 +196,7 @@ def free_category_questions(request, cat_id):
 
 @login_required
 def category_questions(request, cat_id):
-    paydata = PaymentDetails.objects.filter(user=request.user)
+    paydata = PaymentInfo.objects.filter(user=request.user)
     if not paydata:
         return redirect('make-a-payment')
     else:
@@ -291,5 +291,11 @@ def about(request):
 
 def contactus(request):
     return render(request, 'core/contactus.html')
+
+
+def mailtest1(request):
+    send_mail('Using SparkPost with Django', 'This is a message from Django using SparkPost!', 'info@testprepken.com',
+    ['reuben.omanyala27@gmail.com'], fail_silently=True)
+    return render(request, 'core/about.html')
 
 

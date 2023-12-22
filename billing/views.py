@@ -3,7 +3,7 @@ from django.http import HttpResponse, JsonResponse
 from django_daraja.mpesa.core import MpesaClient
 from django.views.decorators.csrf import csrf_exempt
 import json
-from billing.models import Post, Contact, PaymentDetails
+from billing.models import Post, Contact, PaymentDetails, PaymentUpdates, PaymentInfo
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from custom_user.models import User
@@ -31,6 +31,28 @@ def mpesarequest(request):
     callback_url = 'https://kpsea.testprepken.com/billing/callback/{0}/'.format(user_id)
     response = cl.stk_push(phone_number, amount, account_reference, transaction_desc, callback_url)
     return HttpResponse(response)
+
+
+@login_required
+def paymentflutter(request):
+    user_id = request.user.id
+    user_email = request.user.email
+    user_name = request.user.first_name
+    mydata = Post.objects.filter(user=request.user).order_by('-id')[:1]
+    phone_number = mydata[0]
+    callback_url = 'https://kpsea.testprepken.com/billing/callback/{0}/'.format(user_id)
+    return render(request, 'billing/flutterpay.html', {'user_id':user_id, 'user_name':user_name, 'user_email':user_email, 'phone_number':phone_number, 'callback_url':callback_url})
+
+
+def call_back_flutter(request, id):
+    user_id = User.objects.get(id=id)
+    payment = PaymentInfo(
+            user=user_id,
+            payment_status='paid',
+        )
+    payment.save()
+    return render(request, 'billing/paymessage.html')
+
 
 
 @csrf_exempt
@@ -143,11 +165,11 @@ def finpayment(request):
 
 @login_required
 def yearlypayments(request):
-    mydata = Contact.objects.filter(user=request.user).order_by('-id')[:1]
+    mydata = Post.objects.filter(user=request.user).order_by('-id')[:1]
     if not mydata:
-        return redirect('contact-create')
+        return redirect('post-create')
     else:
-        blogs = Contact.objects.filter(user=request.user).values_list('pk', flat=True)
+        blogs = Post.objects.filter(user=request.user).values_list('pk', flat=True)
         numpk = blogs[0]
         return render(request, 'billing/yearlypaydetailsconfirm.html', {'mydata':mydata, 'numpk':numpk})
 
@@ -172,5 +194,37 @@ def processingpaymentpage(request):
         return redirect('dashboard')
 
 
+@login_required
+def proceedToGateway(request):
+    user_id = request.user.id
+    user_email = request.user.email
+    user_name = request.user.first_name
+    mydata = Post.objects.filter(user=request.user).order_by('-id')[:1]
+    phone_number = mydata[0]
+    callback_url = 'https://kpsea.testprepken.com/billing/callback/{0}/'.format(user_id)
+    return render(request, 'billing/proceedToGateway.html', {'user_id':user_id, 'user_name':user_name, 'user_email':user_email, 'phone_number':phone_number, 'callback_url':callback_url})
 
 
+
+@login_required
+def proceedToGatewayannual(request):
+    user_id = request.user.id
+    user_email = request.user.email
+    user_name = request.user.first_name
+    mydata = Post.objects.filter(user=request.user).order_by('-id')[:1]
+    phone_number = mydata[0]
+    callback_url = 'https://kpsea.testprepken.com/billing/callback/{0}/'.format(user_id)
+    return render(request, 'billing/proceedToGatewayannual.html', {'user_id':user_id, 'user_name':user_name, 'user_email':user_email, 'phone_number':phone_number, 'callback_url':callback_url})
+
+@login_required
+def paymentsTracker(request):
+    if request.user.is_superuser:
+        mydata = PaymentInfo.objects.all()
+        print(mydata)
+        return render(request, 'billing/paymentsTracker.html', {'mydata':mydata})
+    else:
+        return redirect('dashboard')
+
+def paymentsDelete(request, id):
+    PaymentInfo.objects.filter(id=id).delete()
+    return redirect('paytracker')

@@ -26,6 +26,7 @@ urlpatterns = [
     path('submit-answer/<int:cat_id>/<int:quest_id>', core_views.submit_answer, name='submit-answer'),
     path('profile', core_views.profile, name='profile'),
     path('about', core_views.about, name='about'),
+    path('mailtest', core_views.mailtest1, name='mailtest'),
     path('contactus', core_views.contactus, name='contactus'),
 ]
 

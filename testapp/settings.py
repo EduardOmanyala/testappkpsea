@@ -13,7 +13,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ['kpsea.testprepken.com','www.kpsea.testprepken.com']
-#ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -172,3 +172,5 @@ AUTO_LOGOUT = {'IDLE_TIME': 36000, 'REDIRECT_TO_LOGIN_IMMEDIATELY': True, 'MESSA
 
 
 #send_mail(subject, message, from_email, recipient_list, auth_user="my_secondary_email@example.com", auth_password="mypassword")
+
+#  xsmtpsib-5d82593bffe3ac55bdd40cbef5971392205997a9a4ce5a31c8f552fbcb3a7f47-Bsmkhc1K4VfYCUPq

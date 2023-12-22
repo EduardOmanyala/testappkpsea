@@ -12,6 +12,33 @@ class PaymentDetails(models.Model):
         verbose_name_plural = 'Payment Details'
     def __str__(self):
         return self.phonenumber
+    
+
+class PaymentUpdates(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    paid = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    class Meta:
+        verbose_name = 'Payment Update'
+        verbose_name_plural = 'Payment Updates'
+
+
+class PaymentInfo(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    payment_status = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    class Meta:
+        verbose_name = 'Payment Info'
+        verbose_name_plural = 'Payment Infos'
+    def __str__(self):
+        return self.payment_status
+
+
+
+
+
+
+
 
     
 
