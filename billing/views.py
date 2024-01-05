@@ -220,7 +220,6 @@ def proceedToGatewayannual(request):
 def paymentsTracker(request):
     if request.user.is_superuser:
         mydata = PaymentInfo.objects.all()
-        print(mydata)
         return render(request, 'billing/paymentsTracker.html', {'mydata':mydata})
     else:
         return redirect('dashboard')
