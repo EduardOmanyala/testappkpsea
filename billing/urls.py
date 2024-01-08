@@ -14,6 +14,8 @@ urlpatterns = [
     path('continue/payment', views.proceedToGateway, name='proceedtogateway'),
     path('continue/payment/plan/two', views.proceedToGatewayannual, name='proceedtogatewayannual'),
 
+    path('continue/payment/paystack/', views.proceedToGatewaypaystack, name='paystack'),
+
     path('pricing/standard', views.pricing_standard, name='pricing-standard'),
     path('pricing/institutes', views.pricing_corporate, name='pricing-institutes'),
     path('pricing', views.pricing, name='pricing'),

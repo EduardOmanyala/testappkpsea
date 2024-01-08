@@ -227,3 +227,15 @@ def paymentsTracker(request):
 def paymentsDelete(request, id):
     PaymentInfo.objects.filter(id=id).delete()
     return redirect('paytracker')
+
+
+@login_required
+def proceedToGatewaypaystack(request):
+    user_id = request.user.id
+    user_email = request.user.email
+    user_name = request.user.first_name
+    #mydata = Post.objects.filter(user=request.user).order_by('-id')[:1]
+    #phone_number = mydata[0]
+    callback_url = 'https://kpsea.testprepken.com/billing/callbackflutter/{0}/'.format(user_id)
+    return render(request, 'billing/paystack.html', {'user_id':user_id, 'user_name':user_name, 'user_email':user_email, 'callback_url':callback_url})
+    
