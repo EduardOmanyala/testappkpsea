@@ -162,9 +162,9 @@ def register(request):
             form.save()
             email = form.cleaned_data.get('email')
             messages.success(request, f'Account Created for {email}, you can now login')
-            html_template = 'core/successemail.html'
+            html_template = 'core/welcomemail.html'
             html_message = render_to_string(html_template)
-            subject = 'Welcome to Testapp!'
+            subject = 'Welcome to Testprep!'
             email_from = 'testprep@testprepken.com'
             recipient_list = [email]
             message = EmailMessage(subject, html_message,
@@ -252,9 +252,13 @@ def myresults(request):
 def profile(request):
     return render(request, 'core/profile.html')
 
+
+
+from usermanager.models import EmailVerification
 @login_required
 def dashboard(request):
-    return render(request, 'core/subjects.html')
+    datum = EmailVerification.objects.filter(user=request.user)
+    return render(request, 'core/subjects.html', {'datum': datum})
 
 
 # @login_required
@@ -294,8 +298,10 @@ def contactus(request):
 
 
 def mailtest1(request):
-    send_mail('Using SparkPost with Django', 'This is a message from Django using SparkPost!', 'info@testprepken.com',
-    ['reuben.omanyala27@gmail.com'], fail_silently=True)
+    send_mail('Using SparkPost with Django123', 'This is a message from Django using SparkPost!123', 'Testprep@testprepken.com',
+    ['reuben.omanyala22@gmail.com'], fail_silently=True)
     return render(request, 'core/about.html')
 
 
+def welcomemail(request):
+    return render(request, 'core/welcomemail.html')

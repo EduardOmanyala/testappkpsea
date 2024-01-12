@@ -10,6 +10,13 @@
 
 
       <!-- start of main container-->
+      {% if not datum %}
+      <div class="alert alert-primary" role="alert">
+        Verify your Email <a href="{% url 'verifyemail' %}" class="alert-link">Using this Link</a>. Check your inbox for more details.
+      </div>
+      {% endif %}
+
+
 <div class="subjectdisp">
   <!-- start of first row -->
   <div>

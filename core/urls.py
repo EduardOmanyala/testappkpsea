@@ -27,6 +27,7 @@ urlpatterns = [
     path('profile', core_views.profile, name='profile'),
     path('about', core_views.about, name='about'),
     path('mailtest', core_views.mailtest1, name='mailtest'),
+    path('welcomemail', core_views.welcomemail, name='welcomemail'),
     path('contactus', core_views.contactus, name='contactus'),
 ]
 

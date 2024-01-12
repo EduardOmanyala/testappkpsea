@@ -3,7 +3,7 @@ from django.http import HttpResponse, JsonResponse
 from django_daraja.mpesa.core import MpesaClient
 from django.views.decorators.csrf import csrf_exempt
 import json
-from billing.models import Post, Contact, PaymentDetails, PaymentUpdates, PaymentInfo
+from billing.models import Post, Contact, PaymentDetails, PaymentUpdates, PaymentInfo, SubscriptionData
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from custom_user.models import User
@@ -48,11 +48,30 @@ def call_back_flutter(request, id):
     user_id = User.objects.get(id=id)
     payment = PaymentInfo(
             user=user_id,
-            payment_status='paid',
+            payment_status='400',
         )
     payment.save()
+    datum = SubscriptionData(
+            user=user_id,
+            payment_status='400',
+    )
+    datum.save()
     return render(request, 'billing/paymessage.html')
 
+
+def call_back_annual(request, id):
+    user_id = User.objects.get(id=id)
+    payment = PaymentInfo(
+            user=user_id,
+            payment_status='3000',
+        )
+    payment.save()
+    datum = SubscriptionData(
+            user=user_id,
+            payment_status='3000',
+    )
+    datum.save()
+    return render(request, 'billing/paymessage.html')
 
 
 @csrf_exempt
@@ -236,6 +255,19 @@ def proceedToGatewaypaystack(request):
     user_name = request.user.first_name
     #mydata = Post.objects.filter(user=request.user).order_by('-id')[:1]
     #phone_number = mydata[0]
-    callback_url = 'https://kpsea.testprepken.com/billing/callbackflutter/{0}/'.format(user_id)
+    callback_url = 'https://kpsea.testprepken.com/billing/payment_review/$2y$10$g/H75NWQ4eS/{0}/t3x6Jlf6fFYUptfxRsdyttm8iHjWkQU/rvyQ5CHYC/'.format(user_id)
     return render(request, 'billing/paystack.html', {'user_id':user_id, 'user_name':user_name, 'user_email':user_email, 'callback_url':callback_url})
+    
+
+
+
+@login_required
+def proceedToGatewaypaystackannual(request):
+    user_id = request.user.id
+    user_email = request.user.email
+    user_name = request.user.first_name
+    #mydata = Post.objects.filter(user=request.user).order_by('-id')[:1]
+    #phone_number = mydata[0]
+    callback_url = 'https://kpsea.testprepken.com/billing/payment_review/$2y$10$g/H75NWJ4eS/{0}/t3x6Jlf6fFYUtriidyttm8iHjWkQDPT/rvyQ5CHYC/'.format(user_id)
+    return render(request, 'billing/paystackannual.html', {'user_id':user_id, 'user_name':user_name, 'user_email':user_email, 'callback_url':callback_url})
     

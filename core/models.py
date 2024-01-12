@@ -36,6 +36,8 @@ class QuizCategory(models.Model):
         return self.title
     
 
+
+
 class QuizQuestion(models.Model):
     category = models.ForeignKey(QuizCategory, on_delete=models.CASCADE)
     context = HTMLField(blank=True, null=True)
