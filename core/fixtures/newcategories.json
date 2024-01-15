@@ -173,8 +173,8 @@
         "model": "core.QuizCategory",
         "pk": 36,
         "fields": {
-          "title": "Kiswahili Test Four",
-          "heading":"Kiswahili Test Four",
+          "title": "Kiswahili Test Six",
+          "heading":"Kiswahili Test Six",
           "type":"paid",
           "subject": "kiswahili"
         }

@@ -239,7 +239,8 @@ def proceedToGatewayannual(request):
 def paymentsTracker(request):
     if request.user.is_superuser:
         mydata = PaymentInfo.objects.all()
-        return render(request, 'billing/paymentsTracker.html', {'mydata':mydata})
+        userCount = User.objects.all().count()
+        return render(request, 'billing/paymentsTracker.html', {'mydata':mydata, 'userCount':userCount})
     else:
         return redirect('dashboard')
 
