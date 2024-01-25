@@ -1,0 +1,159 @@
+{% extends "core/base4.html" %}
+{% load static %}
+{% block content %}
+<section>
+    <div class="orderdashsection">
+        <div >
+
+          <div class="border-end bg-white mt-3" id="sidebar-wrapper" >
+            
+            <div class="list-group list-group-flush">
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Post New</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Active</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Complete</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Payment</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Profile</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">About</a>
+            </div>
+        </div>
+
+
+
+
+
+        </div>
+        <div class="px-4" style="background-color: #F8F8FF;">
+            <div class="orderdetailsmain">
+
+
+              <div class="alert alert-primary" role="alert">
+                Complete your order by making a payment. <a href="#" class="alert-link">Click Here to Proceed</a></div>
+
+
+              <div class="card mt-3 text-left">
+                <div class="card-header">
+                  <h6 class="small"><strong>Requirements</strong></h6>
+                  <p class="small">Formating: <strong>Masters</strong></p>
+                </div>
+              </div>
+
+              <div>
+                {% load humanize %}
+                <p class="small mb-3 mt-3" style="text-transform: uppercase; color: #A9A9A9; letter-spacing: 2px;"><strong>TIME REMAINING: {{ time_left|naturaltime }}</strong></p>
+            </div>
+
+              <div class="mb-3 mt-3">
+                <h5><strong>{{ order.title}}</strong></h5>
+              </div>
+        
+
+              <div class="order-details1 mt-3 mb-3 pt-3 pb-3">
+                <div>
+
+
+                  <div class="unit unit-spacing-xs">
+                    <div class="unit-left"><span class="icon fa fa-graduation-cap"></span></div>
+                    <div class="unit-body">
+                      <p >{{ order.subject}}</p>
+                    </div>
+                  </div>
+                  
+                </div>
+                <div>
+
+                  <div class="unit unit-spacing-xs">
+                    <div class="unit-left"><span class="icon fa fa-file-text"></span></div>
+                    <div class="unit-body">
+                      <p>{{ order.pages}} ({{ words}} Words)</p>
+                    </div>
+                  </div>
+
+
+
+                  
+                </div>
+                <div>
+
+                  <div class="unit unit-spacing-xs">
+                    <div class="unit-left"><span class="icon fa fa-credit-card"></span></div>
+                    <div class="unit-body">
+                      <p>KES {{ cost }}</p>
+                    </div>
+                  </div>
+
+
+
+                  
+                </div>
+                <div>
+
+
+                  <div class="unit unit-spacing-xs">
+                    <div class="unit-left"><span class="icon fa fa-pencil"></span></div>
+                    <div class="unit-body">
+                      <p><a href="#">Edit</a></p>
+                    </div>
+                  </div>
+                  
+
+
+
+
+                </div>
+              </div>
+
+              <br><br>
+
+
+
+
+              <div class="text-left">
+                {% for obj in orderinfo%}
+                {% if obj.instructions %}
+                <p class="text-left pl-2">{{ obj.instructions|safe}}</p>
+                {% endif %}
+                {% if obj.file %}
+                <div class="card">
+                  <div class="card-body">
+                    <p><a target="_blank" href="{{ obj.file.url }}" >{{ obj.file.name }}</a></p>
+                  </div>
+                </div>
+
+                {% endif %}
+                <br>
+                <div>
+                  <p class="text-right small">{{ obj.created_at|naturaltime }}</p>
+                </div>
+                <br>
+                {% endfor%}
+              </div>
+            <div class="addinst">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.media }}
+                {{ form.as_p }}
+                <br>
+                <button type="submit" class="btn btn-primary">Post</button>
+                
+              </form>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+            
+            </div>
+        </div>
+    </div> 
+</section>
+
+{% endblock %}
+  

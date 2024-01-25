@@ -305,3 +305,14 @@ def mailtest1(request):
 
 def welcomemail(request):
     return render(request, 'core/welcomemail.html')
+
+
+
+import random
+def questionListMaths(request):
+    mathslistone = list(QuizQuestion.objects.filter(category=19).order_by('-id'))
+    mathslisttwo = list(QuizQuestion.objects.filter(category=20).order_by('-id'))
+    mathslisthree = list(QuizQuestion.objects.filter(category=21).order_by('-id'))
+    datum = mathslistone + mathslisttwo + mathslisthree
+    items = random.sample(datum, 15)
+    return render(request, 'core/mathsquestionlist.html', {'items': items})

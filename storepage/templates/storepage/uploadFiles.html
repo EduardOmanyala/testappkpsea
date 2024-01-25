@@ -1,0 +1,72 @@
+{% extends "core/base3.html" %}
+{% load static %}
+{% block content %}
+<section>
+    <div class="crazxydiv">
+        <div></div>
+        <div>
+            <div class="crazxydiv2">
+                <div class="col col-md-4">
+                    <label for="" class="form-label mb-2">Upload File</label>
+                    <input type="file" id="file" class="form-control mb-3" multiple/>
+                    <button
+                      class="btn btn-primary float-end"
+                      type="submit"
+                      onclick="uploadFile();"
+                    >
+                      Submit Form
+                    </button>
+                  </div>
+
+                  <script
+                  src="https://code.jquery.com/jquery-3.6.0.min.js"
+                  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                  crossorigin="anonymous"
+                ></script>
+            
+                <script>
+                  function uploadFile() {
+                    var data = new FormData();
+            
+                    // var url = "/single_upload/";
+                    // data.append("file", $("input[id^='file']")[0].files[0]);
+            
+                    var url = "/store/order/uploadfiles/ajax/1/";
+                    var files = $("input[id^='file']")[0].files;
+                    for (i=0; i<files.length; i++) {
+                      data.append("files", files[i]);
+                    }
+                    data.append("csrfmiddlewaretoken", "{{ csrf_token }}");
+            
+                    $.ajax({
+                      method: "POST",
+                      url: url,
+                      processData: false,
+                      contentType: false,
+                      mimeType: "multipart/form-data",
+                      data: data,
+                      success: function (res) {
+                        console.log(res);
+                      },
+                    });
+                  }
+                </script>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+        <div></div>
+    </div> 
+</section>
+
+{% endblock %}
+  

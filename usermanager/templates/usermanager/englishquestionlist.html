@@ -1,0 +1,74 @@
+{% extends "core/base3.html" %}
+{% load static %}
+{% block content %}
+<div>
+  <h6 class="joinbanner" style="background: linear-gradient(109.6deg, rgba(156,252,248,1) 11.2%, rgba(110,123,251,1) 91.1% );">Gain Access to Hundreds of Questions, Answers and Auto-Graded Tests!&nbsp;&nbsp;&nbsp; <a href="{% url 'register' %}">Sign Up</a></h6> 
+</div>
+<div>
+  <h6 class="joinbanner" style="background: linear-gradient(109.6deg, rgba(156,252,248,1) 11.2%, rgba(110,123,251,1) 91.1% );">Are you a Student? Revise Online by Taking Tests!&nbsp;&nbsp;&nbsp; <a href="{% url 'dashboard' %}">Take Tests</a></h6> 
+</div>
+
+
+
+<section>
+    <div class="questiondiv">
+        <div></div>
+        <div>
+            <div class="crazxydiv2">
+              <h6><strong>Questions</strong>(Refresh page for new questions)</h6>
+              <br>
+
+            {% for item in items %}
+            
+            
+            <div class="card text-center">
+              {% if item.context %}
+       
+                <div >
+                  <p>{{item.context|safe}}</p>
+                </div>
+
+            {% endif %}
+                <div class="card-header">
+                    <strong>{{ forloop.counter }}. {{item.question}}</strong>
+                </div>
+
+                {% if item.questionimage %}
+                    <div >
+                        
+                        <img src="{{ item.questionimage.url }}" alt="Loading Image">
+                       
+                    </div>
+                    {% endif %}
+
+
+                  <div style="border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: gainsboro; height: 2.5rem;"><p>A. {{item.opt_1}}</p></div>
+                  <div style="border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: gainsboro; height: 2.5rem;"><p>B. {{item.opt_2}}</p></div>
+                  <div style="border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: gainsboro; height: 2.5rem;"><p>C. {{item.opt_3}}</p></div>
+                  <div style="border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: gainsboro; height: 2.5rem;"><p>D. {{item.opt_4}}</p></div>
+
+                <div class="card-body">
+                  <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample{{item.id}}" role="button" aria-expanded="false" aria-controls="collapseExample{{item.id}}" >Show Answer</a>
+                </div>
+
+                <div class="collapse" id="collapseExample{{item.id}}">
+                    <div class="card card-body">
+                        {{item.right_opt}}
+                    </div>
+                  </div>
+
+                <div class="card-footer text-muted">
+    
+                </div>
+              </div>
+              <br>
+
+
+            {% endfor %}
+            </div>
+        </div>
+        <div></div>
+    </div> 
+</section>
+
+{% endblock %}

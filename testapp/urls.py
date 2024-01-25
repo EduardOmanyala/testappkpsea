@@ -26,6 +26,7 @@ urlpatterns = [
     #path('tinymce/', include('tinymce.urls')),
     path('billing/', include('billing.urls')),
     path('confirm/', include('usermanager.urls')),
+    path('store/', include('storepage.urls')),
 ]
 
 

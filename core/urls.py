@@ -29,6 +29,7 @@ urlpatterns = [
     path('mailtest', core_views.mailtest1, name='mailtest'),
     path('welcomemail', core_views.welcomemail, name='welcomemail'),
     path('contactus', core_views.contactus, name='contactus'),
+    path('questionlist/maths', core_views.questionListMaths, name='questionlist_maths'),
 ]
 
 

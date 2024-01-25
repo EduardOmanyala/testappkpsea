@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'core/css/fonts.css' %}">
     <link rel="stylesheet" href="{% static 'core/css/billing.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/order.css' %}">
     
 
 
@@ -51,7 +52,7 @@
                   <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                   <!-- RD Navbar Brand-->
                   <div class="rd-navbar-brand">
-                    <!--Brand--><a class="brand" href="index.html"><img src="{% static 'core/images3/3logo-default-450x37.png' %}" alt="" width="225" height="18"/></a>
+                    <!--Brand--><a class="brand" href="{% url 'home' %}"><img src="{% static 'core/images3/3logo-default-450x37.png' %}" alt="" width="225" height="18"/></a>
                   </div>
                 </div>
                 
@@ -102,7 +103,7 @@
                     </li>
                     <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'myresults' %}">Results</a>
                     </li>
-                    <li class="rd-nav-item"><a class="rd-nav-link" href="#">Blog</a>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'questionlist_all' %}">Questions</a>
                     </li>
                     <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'contactus' %}">Contact Us</a>
                     </li>
@@ -115,7 +116,7 @@
                     </li>
                     <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'pricing' %}">Pricing</a>
                     </li>
-                    <li class="rd-nav-item"><a class="rd-nav-link" href="#">Blog</a>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'questionlist_all' %}">Questions</a>
                     </li>
                     <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'contactus' %}">Contact Us</a>
                     </li>
@@ -154,7 +155,7 @@
                       <li>
                         <div class="unit">
                           <div class="unit-left"><span class="icon fa fa-envelope"></span></div>
-                          <div class="unit-body"><a class="link-aemail" href="mailto:#">info@demolink.org</a></div>
+                          <div class="unit-body"><a class="link-aemail" href="mailto:#">testprep@testprepken.com</a></div>
                         </div>
                       </li>
                       <li>

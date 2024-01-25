@@ -4,8 +4,46 @@ from django.core.mail import EmailMessage, send_mail
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from custom_user.models import User
+from core.models import QuizQuestion
 from usermanager.models import EmailVerification
 # Create your views here.
+
+def questionListAll(request):
+    return render(request, 'usermanager/questionListNoAuth.html')
+
+import random
+def questionListEnglish(request):
+    mathslistone = list(QuizQuestion.objects.filter(category=23).order_by('-id'))
+    mathslisttwo = list(QuizQuestion.objects.filter(category=6).order_by('-id'))
+    mathslisthree = list(QuizQuestion.objects.filter(category=4).order_by('-id'))
+    datum = mathslistone + mathslisttwo + mathslisthree
+    items = random.sample(datum, 15)
+    return render(request, 'usermanager/englishquestionlist.html', {'items': items})
+
+
+def questionListScience(request):
+    mathslistone = list(QuizQuestion.objects.filter(category=30).order_by('-id'))
+    mathslisttwo = list(QuizQuestion.objects.filter(category=31).order_by('-id'))
+    mathslisthree = list(QuizQuestion.objects.filter(category=11).order_by('-id'))
+    datum = mathslistone + mathslisttwo + mathslisthree
+    items = random.sample(datum, 15)
+    return render(request, 'usermanager/sciencequestionlist.html', {'items': items})
+
+def questionListSocial(request):
+    mathslistone = list(QuizQuestion.objects.filter(category=15).order_by('-id'))
+    mathslisttwo = list(QuizQuestion.objects.filter(category=16).order_by('-id'))
+    mathslisthree = list(QuizQuestion.objects.filter(category=17).order_by('-id'))
+    datum = mathslistone + mathslisttwo + mathslisthree
+    items = random.sample(datum, 15)
+    return render(request, 'usermanager/socialquestionlist.html', {'items': items})
+
+def questionListKiswahili(request):
+    mathslistone = list(QuizQuestion.objects.filter(category=2).order_by('-id'))
+    mathslisttwo = list(QuizQuestion.objects.filter(category=25).order_by('-id'))
+    mathslisthree = list(QuizQuestion.objects.filter(category=36).order_by('-id'))
+    datum = mathslistone + mathslisttwo + mathslisthree
+    items = random.sample(datum, 15)
+    return render(request, 'usermanager/kiswahiliquestionlist.html', {'items': items})
 
 @login_required
 def verifyEmail(request):

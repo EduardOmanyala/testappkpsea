@@ -23115,7 +23115,11 @@ img.mfp-img {
 	}
 }
 
-
+.questiondiv {
+	margin-top: 1%;
+	display: grid;
+    grid-template-columns: 15% 70% 15%;
+}
 
 
 .crazxydiv {
@@ -23182,6 +23186,9 @@ img.mfp-img {
     .crazxydiv {
         grid-template-columns: 100%;
     }
+	.questiondiv {
+		grid-template-columns: 100%;
+	}
 	.results {
 		grid-template-columns: 100%;
 	}
@@ -23209,6 +23216,9 @@ img.mfp-img {
     .crazxydiv {
         grid-template-columns: 100%;
     }
+	.questiondiv {
+		grid-template-columns: 100%;
+	}
 	.results {
 		grid-template-columns: 100%;
 	}
